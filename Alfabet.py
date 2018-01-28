@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_DodawanieAlfabetu(object):
     def setupUi(self, DodawanieAlfabetu):
         DodawanieAlfabetu.setObjectName("DodawanieAlfabetu")
-        DodawanieAlfabetu.resize(354, 114)
+        DodawanieAlfabetu.setFixedSize(354,114)
         self.addAlfaButton = QtWidgets.QPushButton(DodawanieAlfabetu)
         self.addAlfaButton.setGeometry(QtCore.QRect(200, 70, 113, 32))
         self.addAlfaButton.setObjectName("addAlfaButton")

@@ -12,9 +12,10 @@ from Alfabet import Ui_DodawanieAlfabetu
 import pudb
 
 class Ui_MaszynaTuringa(object):
+    maszyna = ''
     def setupUi(self, MaszynaTuringa):
         MaszynaTuringa.setObjectName("MaszynaTuringa")
-        MaszynaTuringa.resize(615, 307)
+        MaszynaTuringa.setFixedSize(609, 393)
         self.addState = QtWidgets.QPushButton(MaszynaTuringa)
         self.addState.setGeometry(QtCore.QRect(140, 100, 181, 32))
         self.addState.setObjectName("addState")
@@ -82,14 +83,14 @@ class Ui_MaszynaTuringa(object):
         self.textCharAfterEditor.setObjectName("textCharAfterEditor")
         self.textCharAfterEditor.hide()
         self.resultLabel = QtWidgets.QLabel(MaszynaTuringa)
-        self.resultLabel.setGeometry(QtCore.QRect(30, 260, 71, 31))
+        self.resultLabel.setGeometry(QtCore.QRect(30, 340, 71, 31))
         font = QtGui.QFont()
         font.setPointSize(24)
         self.resultLabel.setFont(font)
         self.resultLabel.setText("")
         self.resultLabel.setObjectName("resultLabel")
         self.resultText = QtWidgets.QLabel(MaszynaTuringa)
-        self.resultText.setGeometry(QtCore.QRect(110, 260, 391, 31))
+        self.resultText.setGeometry(QtCore.QRect(110, 340, 381, 31))
         font = QtGui.QFont()
         font.setPointSize(24)
         self.resultText.setFont(font)
@@ -100,7 +101,7 @@ class Ui_MaszynaTuringa(object):
         self.addAlphabet.setGeometry(QtCore.QRect(460, 110, 121, 61))
         self.addAlphabet.setObjectName("addAlphabet")
         self.pushButton = QtWidgets.QPushButton(MaszynaTuringa)
-        self.pushButton.setGeometry(QtCore.QRect(140, 140, 181, 81))
+        self.pushButton.setGeometry(QtCore.QRect(140, 170, 181, 81))
         self.pushButton.setEnabled(False)
         font = QtGui.QFont()
         font.setPointSize(64)
@@ -126,6 +127,13 @@ class Ui_MaszynaTuringa(object):
         self.resetButton = QtWidgets.QPushButton(MaszynaTuringa)
         self.resetButton.setGeometry(QtCore.QRect(460, 210, 121, 61))
         self.resetButton.setObjectName("resetButton")
+        self.importFromFileButton = QtWidgets.QPushButton(MaszynaTuringa)
+        self.importFromFileButton.setGeometry(QtCore.QRect(140, 130, 181, 32))
+        self.importFromFileButton.setObjectName("importFromFileButton")
+        self.importFromFileButton.setEnabled(False)
+        self.nextButton = QtWidgets.QPushButton(MaszynaTuringa)
+        self.nextButton.setGeometry(QtCore.QRect(490, 340, 113, 32))
+        self.nextButton.setObjectName("nextButton")
 
 
 
@@ -160,6 +168,8 @@ class Ui_MaszynaTuringa(object):
         self.statesRadioButton.setText(_translate("MaszynaTuringa", "Reszta Stanów"))
         self.finishStateRadioButton.setText(_translate("MaszynaTuringa", "Stan Końcowy"))
         self.resetButton.setText(_translate("MaszynaTuringa", "Reset"))
+        self.importFromFileButton.setText(_translate("MaszynaTuringa", "Importuj z pliku..."))
+        self.nextButton.setText(_translate("MaszynaTuringa", "Następny"))
 
     def checkIfTextFieldNotNone(self):
         if self.textStateBeforeEditor.text() is not u'' and self.textStateAfterEditor.text() is not u'':
@@ -244,6 +254,8 @@ class Ui_MaszynaTuringa(object):
         if self.finishStateRadioButton.isChecked() == True:
             self.labelStateFinish.show()
             self.textStateFinishEditor.show()
+
+
 
 
 

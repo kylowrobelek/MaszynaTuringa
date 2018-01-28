@@ -12,7 +12,7 @@ from PyQt5.QtCore import pyqtSlot
 class Ui_Input(object):
     def setupUi(self, Input):
         Input.setObjectName("Input")
-        Input.resize(358, 158)
+        Input.setFixedSize(358, 158)
         self.addInputButton = QtWidgets.QPushButton(Input)
         self.addInputButton.setGeometry(QtCore.QRect(230, 110, 113, 32))
         self.addInputButton.setObjectName("addInputButton")

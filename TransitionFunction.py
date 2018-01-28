@@ -43,7 +43,7 @@ class TransitionFunction(object):
         if self.checkIfGoodWithAlphabet(charAfter) and self.checkIfGoodWithAlphabet(charBefore):
             beforeTuple = tuple([stateBefore, charBefore])
             afterTuple = tuple([stateAfter, charAfter, moveTo])
-            return self.transition.update({beforeTuple: afterTuple})
+            self.transition.update({beforeTuple: afterTuple})
         else:
             raise BaseException
 
@@ -56,3 +56,6 @@ class TransitionFunction(object):
             return True
         else:
             return False
+
+    def get_transition(self):
+        return self.transition

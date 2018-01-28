@@ -1,0 +1,103 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'TransitionWindow.ui'
+#
+# Created by: PyQt5 UI code generator 5.9.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_TransitionWindow(object):
+    def setupUi(self, TransitionWindow):
+        TransitionWindow.setObjectName("TransitionWindow")
+        TransitionWindow.resize(561, 393)
+        TransitionWindow.move(1580, 460)
+        self.gridLayoutWidget = QtWidgets.QWidget(TransitionWindow)
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(30, 70, 51, 291))
+        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
+        self.gridStateBefore = QtWidgets.QGridLayout(self.gridLayoutWidget)
+        self.gridStateBefore.setContentsMargins(0, 0, 0, 0)
+        self.gridStateBefore.setObjectName("gridStateBefore")
+        self.stateBeforeTableLabel = QtWidgets.QLabel(TransitionWindow)
+        self.stateBeforeTableLabel.setGeometry(QtCore.QRect(10, 40, 71, 16))
+        self.stateBeforeTableLabel.setObjectName("stateBeforeTableLabel")
+        self.gridLayoutWidget_2 = QtWidgets.QWidget(TransitionWindow)
+        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(110, 70, 51, 291))
+        self.gridLayoutWidget_2.setObjectName("gridLayoutWidget_2")
+        self.gridCharBefore = QtWidgets.QGridLayout(self.gridLayoutWidget_2)
+        self.gridCharBefore.setContentsMargins(0, 0, 0, 0)
+        self.gridCharBefore.setObjectName("gridCharBefore")
+        self.charBeforeTableLabel = QtWidgets.QLabel(TransitionWindow)
+        self.charBeforeTableLabel.setGeometry(QtCore.QRect(90, 40, 71, 16))
+        self.charBeforeTableLabel.setObjectName("charBeforeTableLabel")
+        self.gridLayoutWidget_3 = QtWidgets.QWidget(TransitionWindow)
+        self.gridLayoutWidget_3.setGeometry(QtCore.QRect(190, 70, 51, 291))
+        self.gridLayoutWidget_3.setObjectName("gridLayoutWidget_3")
+        self.gridStateAfter = QtWidgets.QGridLayout(self.gridLayoutWidget_3)
+        self.gridStateAfter.setContentsMargins(0, 0, 0, 0)
+        self.gridStateAfter.setObjectName("gridStateAfter")
+        self.stateAfterTableLabel = QtWidgets.QLabel(TransitionWindow)
+        self.stateAfterTableLabel.setGeometry(QtCore.QRect(180, 40, 51, 16))
+        self.stateAfterTableLabel.setObjectName("stateAfterTableLabel")
+        self.gridLayoutWidget_5 = QtWidgets.QWidget(TransitionWindow)
+        self.gridLayoutWidget_5.setGeometry(QtCore.QRect(260, 70, 51, 291))
+        self.gridLayoutWidget_5.setObjectName("gridLayoutWidget_5")
+        self.gridCharAfter = QtWidgets.QGridLayout(self.gridLayoutWidget_5)
+        self.gridCharAfter.setContentsMargins(0, 0, 0, 0)
+        self.gridCharAfter.setObjectName("gridCharAfter")
+        self.charAfterTableLabel = QtWidgets.QLabel(TransitionWindow)
+        self.charAfterTableLabel.setGeometry(QtCore.QRect(250, 40, 51, 16))
+        self.charAfterTableLabel.setObjectName("charAfterTableLabel")
+        self.stateBeginLabel = QtWidgets.QLabel(TransitionWindow)
+        self.stateBeginLabel.setGeometry(QtCore.QRect(410, 80, 141, 61))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.stateBeginLabel.setFont(font)
+        self.stateBeginLabel.setObjectName("stateBeginLabel")
+        self.stateBeginTableLabel = QtWidgets.QLabel(TransitionWindow)
+        self.stateBeginTableLabel.setGeometry(QtCore.QRect(440, 150, 61, 41))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.stateBeginTableLabel.setFont(font)
+        self.stateBeginTableLabel.setText("")
+        self.stateBeginTableLabel.setObjectName("stateBeginTableLabel")
+        self.stateEndLabel = QtWidgets.QLabel(TransitionWindow)
+        self.stateEndLabel.setGeometry(QtCore.QRect(410, 210, 111, 61))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.stateEndLabel.setFont(font)
+        self.stateEndLabel.setObjectName("stateEndLabel")
+        self.stateEndTableLabel = QtWidgets.QLabel(TransitionWindow)
+        self.stateEndTableLabel.setGeometry(QtCore.QRect(440, 290, 51, 61))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.stateEndTableLabel.setFont(font)
+        self.stateEndTableLabel.setText("")
+        self.stateEndTableLabel.setObjectName("stateEndTableLabel")
+        self.gridLayoutWidget_6 = QtWidgets.QWidget(TransitionWindow)
+        self.gridLayoutWidget_6.setGeometry(QtCore.QRect(330, 70, 51, 291))
+        self.gridLayoutWidget_6.setObjectName("gridLayoutWidget_6")
+        self.gridMove = QtWidgets.QGridLayout(self.gridLayoutWidget_6)
+        self.gridMove.setContentsMargins(0, 0, 0, 0)
+        self.gridMove.setObjectName("gridMove")
+        self.moveTableLabel = QtWidgets.QLabel(TransitionWindow)
+        self.moveTableLabel.setGeometry(QtCore.QRect(320, 40, 61, 16))
+        self.moveTableLabel.setObjectName("moveTableLabel")
+
+        self.retranslateUi(TransitionWindow)
+        QtCore.QMetaObject.connectSlotsByName(TransitionWindow)
+
+    def retranslateUi(self, TransitionWindow):
+        _translate = QtCore.QCoreApplication.translate
+        TransitionWindow.setWindowTitle(_translate("TransitionWindow", "Tabela Funkcji Przejścia"))
+        self.stateBeforeTableLabel.setText(_translate("TransitionWindow", "Stan Przed"))
+        self.charBeforeTableLabel.setText(_translate("TransitionWindow", "Znak Przed"))
+        self.stateAfterTableLabel.setText(_translate("TransitionWindow", "Stan Po"))
+        self.charAfterTableLabel.setText(_translate("TransitionWindow", "Znak Po"))
+        self.stateBeginLabel.setText(_translate("TransitionWindow", "Stan \n"
+"Początkowy:"))
+        self.stateEndLabel.setText(_translate("TransitionWindow", "Stan \n"
+"Końcowy:"))
+        self.moveTableLabel.setText(_translate("TransitionWindow", "Przejście"))
+
