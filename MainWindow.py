@@ -134,6 +134,7 @@ class Ui_MaszynaTuringa(object):
         self.nextButton = QtWidgets.QPushButton(MaszynaTuringa)
         self.nextButton.setGeometry(QtCore.QRect(490, 340, 113, 32))
         self.nextButton.setObjectName("nextButton")
+        self.nextButton.hide()
 
 
 

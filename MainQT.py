@@ -24,6 +24,7 @@ class MainWindow(QDialog):
     initial_state = ''
     finalState = ''
     transitionFromCSV = ''
+    result = ''
 
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -38,6 +39,7 @@ class MainWindow(QDialog):
         self.ui.addAlphabet.clicked.connect(self.showAlfaWindow)
         self.ui.pushButton.clicked.connect(self.performCounting)
         self.ui.resetButton.clicked.connect(self.resetAll)
+        self.ui.nextButton.clicked.connect(self.show_result_by_iter)
         self.ui.importFromFileButton.clicked.connect(self.importFromFile)
 
 
@@ -59,7 +61,7 @@ class MainWindow(QDialog):
                     try:
                         self.transition.qtTransition(self.ui.textStateBeforeEditor.text(), self.ui.textCharBeforeEditor.text(), self.ui.textStateAfterEditor.text(), self.ui.textCharAfterEditor.text(), self.ui.btnstate())
                         self.transitionFunction = self.transition.get_transition()
-                        self.uiTable.addToTableStates(self.ui.textStateBeforeEditor.text(), self.ui.textCharBeforeEditor.text(), self.ui.textStateAfterEditor.text(), self.ui.textCharAfterEditor.text(), self.ui.btnstate())
+                        self.uiTable.add_to_table_states(self.ui.textStateBeforeEditor.text(), self.ui.textCharBeforeEditor.text(), self.ui.textStateAfterEditor.text(), self.ui.textCharAfterEditor.text(), self.ui.btnstate())
                     except:
                         QMessageBox.about(self, "Błąd", "Znak musi pokrywać się z alfabetem!")
             else:
@@ -99,15 +101,30 @@ class MainWindow(QDialog):
         self.ui.importFromFileButton.setEnabled(True)
         self.ui.addState.setEnabled(True)
 
+    def iter_result(self, result):
+        for i in result:
+            yield i
+
+    @pyqtSlot()
+    def show_result_by_iter(self):
+        try:
+            self.result += self.iter.next()
+            self.ui.resultText.setText(self.result)
+        except:
+            QMessageBox.about(self, "Koniec", "Koniec ciągu!")
+
+
     @pyqtSlot()
     def performCounting(self):
         self.turing = DefineTuring(tape=self.inputWindow.addInput, blank_symbol=self.alfaWindow.blankSymbol, initial_state=self.initial_state, finalState=self.finalState, transitionFunction=self.transition.transition)
         if self.checkIfFinalState():
             self.turing.performAction()
-            self.ui.resultText.setText(self.turing.get_tape())
+            self.iter = self.iter_result(self.turing.get_tape())
             self.ui.resultLabel.setText("Wynik:")
+            self.ui.nextButton.show()
         else:
             QMessageBox.about(self, "Błąd", "Maszyna zdefiniowana niepoprawnie!")
+
     @pyqtSlot()
     def resetAll(self):
         self.inputWindow.addInput = ''
@@ -121,6 +138,9 @@ class MainWindow(QDialog):
         self.ui.pushButton.setEnabled(False)
         self.ui.addInputButton.setEnabled(False)
         self.ui.addState.setEnabled(False)
+        self.ui.nextButton.hide()
+        self.uiTable.clear_table()
+        self.uiTable.close()
 
     @pyqtSlot()
     def importFromFile(self):
@@ -149,7 +169,7 @@ class MainWindow(QDialog):
             transitionFromCSV = ', '.join(row)
             transitionFromCSV = transitionFromCSV.split(";")
             self.transition.qtTransition(transitionFromCSV[0], transitionFromCSV[1], transitionFromCSV[2], transitionFromCSV[3], transitionFromCSV[4])
-            self.uiTable.addToTableStates(transitionFromCSV[0], transitionFromCSV[1], transitionFromCSV[2], transitionFromCSV[3], transitionFromCSV[4])
+            self.uiTable.add_to_table_states(transitionFromCSV[0], transitionFromCSV[1], transitionFromCSV[2], transitionFromCSV[3], transitionFromCSV[4])
         self.uiTable.show()
 
 

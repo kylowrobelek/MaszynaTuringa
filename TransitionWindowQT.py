@@ -12,13 +12,7 @@ class TransitionWindow(QDialog):
         self.ui = Ui_TransitionWindow()
         self.ui.setupUi(self)
 
-
-    #def addToTableBeginState(self, beginState):
-        #label = QLabel()
-       #self.ui.
-
-
-    def addToTableStates(self, stateBefore, charBefore, stateAfter, charAfter, moveLeftRight):
+    def add_to_table_states(self, stateBefore, charBefore, stateAfter, charAfter, moveLeftRight):
         labelStateBefore = QLabel(stateBefore)
         labelCharBefore = QLabel(charBefore)
         labelStateAfter = QLabel(stateAfter)
@@ -33,8 +27,10 @@ class TransitionWindow(QDialog):
 
         self.count += 1
 
-
-
-
-
-    #def addToTableFinishState(self, finishState):
+    def clear_table(self):
+        for i in reversed(range(self.ui.gridStateBefore.count())):
+            self.ui.gridStateBefore.itemAt(i).widget().setParent(None)
+            self.ui.gridCharBefore.itemAt(i).widget().setParent(None)
+            self.ui.gridStateAfter.itemAt(i).widget().setParent(None)
+            self.ui.gridCharAfter.itemAt(i).widget().setParent(None)
+            self.ui.gridMove.itemAt(i).widget().setParent(None)
